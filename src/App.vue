@@ -1,5 +1,15 @@
 <template>
-  <LineUp v-bind:data="data"/>
+  <!--<LineUp v-bind:data="data" />-->
+  <LineUp v-bind:data="data" defaultRanking="true" style="height: 800px">
+    <LineUpStringColumnDesc column="d" label="Label" v-bind:width="100" />
+    <LineUpCategoricalColumnDesc column="cat" v-bind:categories="cats" color="green" />
+    <LineUpCategoricalColumnDesc column="cat2" v-bind:categories="cats" color="blue" />
+    <LineUpNumberColumnDesc column="a" v-bind:domain="[0, 10]" color="blue" />
+    <LineUpRanking groupBy="cat" sortBy="a:desc">
+      <LineUpSupportColumn type="*" />
+      <LineUpColumn column="*" />
+    </LineUpRanking>
+  </LineUp>
 </template>
 
 <script lang="ts">
