@@ -19,7 +19,7 @@ export default class LineUpCategoricalColumnDesc extends LineUpColumnDesc
     type: Array,
     default: undefined,
   })
-  public categories?: (string | Partial<ICategory>)[];
+  public categories?: Array<string | Partial<ICategory>>;
 
   @Prop({
     type: [String, Object],

@@ -11,7 +11,7 @@ export default class LineUpHierarchyColumnDesc extends LineUpColumnDesc
                 implements IBuilderAdapterHierarchyColumnDescProps {
   @Prop({
     type: Object,
-    required: true
+    required: true,
   })
   public hierarchy!: IPartialCategoryNode;
 

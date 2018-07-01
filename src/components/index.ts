@@ -5,7 +5,8 @@ import { LineUpAllColumns, LineUpColumn, LineUpImposeColumn, LineUpNestedColumn,
   LineUpSupportColumn, LineUpWeightedColumn, LineUpWeightedSumColumn,
 } from './ranking';
 import { LineUpActionsColumnDesc, LineUpCategoricalColumnDesc, LineUpColumnDesc,
-  LineUpHierarchyColumnDesc, LineUpNumberColumnDesc, LineUpStringColumnDesc, } from './column';
+  LineUpHierarchyColumnDesc, LineUpNumberColumnDesc, LineUpStringColumnDesc,
+} from './column';
 
 
 export * from './ranking';
