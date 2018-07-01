@@ -1,8 +1,5 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <LineUp v-bind:data="data"/>
-  </div>
+  <LineUp v-bind:data="data"/>
 </template>
 
 <script lang="ts">
@@ -15,9 +12,9 @@ import LineUp from './components/LineUp.vue';
   },
 })
 export default class App extends Vue {
-  readonly data = <any[]>[];
+  public readonly data = [] as any[];
 
-  readonly cats = ['c1', 'c2', 'c3'];
+  public readonly cats = ['c1', 'c2', 'c3'];
 
   constructor() {
     super();
@@ -27,7 +24,7 @@ export default class App extends Vue {
         a: Math.random() * 10,
         d: 'Row ' + i,
         cat: cats[Math.floor(Math.random() * 3)],
-        cat2: cats[Math.floor(Math.random() * 3)]
+        cat2: cats[Math.floor(Math.random() * 3)],
       });
     }
   }

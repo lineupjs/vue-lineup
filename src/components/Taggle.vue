@@ -11,7 +11,7 @@ import { Taggle as TaggleImpl, LocalDataProvider, ITaggleOptions} from 'lineupjs
 
 @Component
 export default class Taggle extends LineUp {
-  
+
   protected createInstance(node: HTMLElement, data: LocalDataProvider, options: Partial<ITaggleOptions>) {
     return new TaggleImpl(node, data, options);
   }

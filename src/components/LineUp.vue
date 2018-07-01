@@ -28,92 +28,94 @@ import {
 export default class LineUp extends Vue implements IBuilderAdapterProps {
   @Prop({
     type: Array,
-    required: true
-  }) 
-  data!: any[];
+    required: true,
+  })
+  public data!: any[];
 
   @Prop(Array)
-  selection: number[] | null = null;
+  public selection: number[] | null = null;
   @Prop(Number)
-  highlight: number | null = null;
+  public highlight: number | null = null;
 
   @Prop(Boolean)
-  singleSelection?: boolean;
+  public singleSelection?: boolean;
   @Prop(Boolean)
-  filterGlobally?: boolean;
+  public filterGlobally?: boolean;
   @Prop(Boolean)
-  noCriteriaLimits?: boolean;
+  public noCriteriaLimits?: boolean;
   @Prop(Number)
-  maxGroupColumns?: number;
+  public maxGroupColumns?: number;
   @Prop(Number)
-  maxNestedSortingCriteria?: number;
-
-  columnTypes?: {[type: string]: typeof Column};
-
-  @Prop([Boolean, Array])
-  deriveColumns?: boolean | string[];
-  @Prop(Boolean)
-  deriveColors?: boolean;
+  public maxNestedSortingCriteria?: number;
 
   @Prop()
-  restore?: any;
+  public columnTypes?: {[type: string]: typeof Column};
+
+  @Prop([Boolean, Array])
+  public deriveColumns?: boolean | string[];
+  @Prop(Boolean)
+  public deriveColors?: boolean;
+
+  @Prop()
+  public restore?: any;
   @Prop([Boolean, String])
-  defaultRanking?: boolean | 'noSupportTypes';
+  public defaultRanking?: boolean | 'noSupportTypes';
 
   @Prop(Boolean)
-  animated?: boolean;
+  public animated?: boolean;
   @Prop(Boolean)
-  sidePanel?: boolean;
+  public sidePanel?: boolean;
   @Prop(Boolean)
-  sidePanelCollapsed?: boolean;
+  public sidePanelCollapsed?: boolean;
   @Prop(String)
-  defaultSlopeGraphMode?: 'item' | 'band';
+  public defaultSlopeGraphMode?: 'item' | 'band';
   @Prop(Boolean)
-  summaryHeader?: boolean;
+  public summaryHeader?: boolean;
   @Prop(Boolean)
-  expandLineOnHover?: boolean;
+  public expandLineOnHover?: boolean;
   @Prop(Boolean)
-  overviewMode?: boolean;
+  public overviewMode?: boolean;
   @Prop(Boolean)
-  labelRotation?: number;
+  public labelRotation?: number;
 
   @Prop(Object)
-  renderer?: {[id: string]: ICellRendererFactory};
+  public renderer?: {[id: string]: ICellRendererFactory};
   @Prop(Object)
-  toolbar?: {[id: string]: IToolbarAction};
+  public toolbar?: {[id: string]: IToolbarAction};
 
   @Prop(Number)
-  rowHeight?: number;
+  public rowHeight?: number;
   @Prop(Number)
-  rowPadding?: number;
+  public rowPadding?: number;
 
   @Prop(Number)
-  groupHeight?: number;
+  public groupHeight?: number;
   @Prop(Number)
-  groupPadding?: number;
+  public groupPadding?: number;
 
   @Prop(Function)
-  dynamicHeight?: (data: (IGroupItem | IGroupData)[], ranking: Ranking) => (IDynamicHeight | null);
+  public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
 
-  private readonly _adapter = new builderAdapter.Adapter({
+  private readonly adapter = new builderAdapter.Adapter({
     props: () => this,
     createInstance: (data: LocalDataProvider, options: Partial<ILineUpOptions>) =>
-      this.createInstance(<HTMLElement>this.$refs.main, data, options),
-    columnDescs: (data: any[]) => [], //this.descs.map((d) => d.build(data)),
-    rankingBuilders: () => [], //this.rankings.map((d) => d.merge())
+      this.createInstance(this.$refs.main as HTMLElement, data, options),
+    columnDescs: (data: any[]) => [], // this.descs.map((d) => d.build(data)),
+    rankingBuilders: () => [], // this.rankings.map((d) => d.merge())
   });
 
   @Emit('selectionChanged')
-  onSelectionChanged(selection: number[]) {
-    this.selection = selection;
+  public onSelectionChanged(selection: number[]) {
+    //
   }
 
   @Emit('highlightChanged')
-  onHighlightChanged(highlight: number) {
-    this.highlight = highlight;
+  public onHighlightChanged(highlight: number) {
+    //
   }
 
-  protected createInstance(node: HTMLElement, data: LocalDataProvider, options: Partial<ITaggleOptions>): LineUpImpl | Taggle {
+  protected createInstance(node: HTMLElement, data: LocalDataProvider,
+                           options: Partial<ITaggleOptions>): LineUpImpl | Taggle {
     return new LineUpImpl(node, data, options);
   }
 
