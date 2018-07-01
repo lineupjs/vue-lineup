@@ -173,7 +173,7 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
 
   private readonly adapter = new builderAdapter.Adapter({
-    props: () => this,
+    props: () => noUndefined(this),
     createInstance: (data: LocalDataProvider, options: Partial<ILineUpOptions>) =>
       this.createInstance(this.$refs.main as HTMLElement, data, options),
     columnDescs: (data: any[]) => [], // this.descs.map((d) => d.build(data)),
@@ -203,7 +203,6 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   // }
 
   public destroyed() {
-    console.log('adsf');
     this.adapter.componentWillUnmount();
   }
 
@@ -212,12 +211,26 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     return new LineUpImpl(node, data, options);
   }
 }
+
+function noUndefined(obj: any) {
+  const r: any = {};
+  Object.getOwnPropertyNames(obj).forEach((key) => {
+    if (key.startsWith('$')) {
+      return;
+    }
+    const v = obj[key];
+    if (v !== undefined) {
+      r[key] = v;
+    }
+  });
+  return r;
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<style src="../../node_modules/lineupjs/build/LineUpJS.css" ></style>
 <style scoped>
-  @import '~lineupjs/build/LineUpJS.css';
-
   .lu-wrapper {
     position: relative;
     display: block;
