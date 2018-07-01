@@ -21,11 +21,9 @@ export default class LineUpNestedColumn extends ALineUpColumnBuilder implements 
   })
   public label?: string;
 
-  // @ContentChildren(LineUpColumnComponent)
-  private readonly columns: LineUpColumn[] = [];
-
   public build(): INestedBuilder {
-    return builderAdapter.buildNestedRanking(noUndefined(this), this.columns.map((d) => d.build()));
+    const children: LineUpColumn[] = this.$children.filter((d) => d.$options!.name === 'LineUpColumn') as any;
+    return builderAdapter.buildNestedRanking(noUndefined(this), children.map((d) => d.build()));
   }
 }
 </script>

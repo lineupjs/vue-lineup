@@ -1,8 +1,8 @@
 
 export function noUndefined(obj: any) {
   const r: any = {};
-  Object.getOwnPropertyNames(obj).forEach((key) => {
-    if (key.startsWith('$')) {
+  Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertyNames(obj.__proto__)).forEach((key) => {
+    if (key.startsWith('$') || key.startsWith('_')) {
       return;
     }
     const v = obj[key];

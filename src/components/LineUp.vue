@@ -24,6 +24,8 @@ import {
   Ranking,
 } from 'lineupjs';
 import { noUndefined } from './utils';
+import { LineUpColumnDesc } from './column';
+import { LineUpRanking } from './ranking';
 
 
 @Component
@@ -177,8 +179,10 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     props: () => noUndefined(this),
     createInstance: (data: LocalDataProvider, options: Partial<ILineUpOptions>) =>
       this.createInstance(this.$refs.main as HTMLElement, data, options),
-    columnDescs: (data: any[]) => [], // this.descs.map((d) => d.build(data)),
-    rankingBuilders: () => [], // this.rankings.map((d) => d.merge())
+    columnDescs: (data: any[]) => this.$children.filter((d) => d.$options!.name!.endsWith('ColumnDesc'))
+      .map((d) => (d as LineUpColumnDesc).build(data)),
+    rankingBuilders: () => this.$children.filter((d) => d.$options!.name === 'LineUpRanking')
+      .map((d) => (d as LineUpRanking).merge()),
   });
 
   @Emit('selectionChanged')

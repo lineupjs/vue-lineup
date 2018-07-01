@@ -27,11 +27,9 @@ export default class LineUpWeightedColumn extends ALineUpColumnBuilder implement
   })
   public label?: string;
 
-  // @ContentChildren(LineUpColumnComponent)
-  private readonly columns: LineUpColumn[] = [];
-
   public build(): IReduceBuilder {
-    return builderAdapter.buildReduceRanking(noUndefined(this), this.columns.map((d) => d.build()));
+    const children: LineUpColumn[] = this.$children.filter((d) => d.$options!.name === 'LineUpColumn') as any;
+    return builderAdapter.buildReduceRanking(noUndefined(this), children.map((d) => d.build()));
   }
 }
 </script>

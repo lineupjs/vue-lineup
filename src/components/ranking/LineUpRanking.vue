@@ -48,11 +48,9 @@ export default class LineUpRanking extends Vue  implements IBuilderAdapterRankin
   public columns?: Array<string | IImposeColumnBuilder | INestedBuilder | IWeightedSumBuilder |
                          IReduceBuilder | IScriptedBuilder>;
 
-  // @ContentChildren(ALineUpColumnBuilder)
-  private readonly children: ALineUpColumnBuilder[] = [];
-
   public merge() {
-    const inline = this.children.map((d) => d.build());
+    const children: ALineUpColumnBuilder[] = this.$children.filter((d) => d.$options!.name!.endsWith('Column')) as any;
+    const inline = children.map((d) => d.build());
 
     const columns = (this.columns || []).concat(inline);
 

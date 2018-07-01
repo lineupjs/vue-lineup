@@ -22,11 +22,11 @@ export default class LineUpWeightedSumColumn extends ALineUpColumnBuilder
   })
   public label?: string;
 
-  // @ContentChildren(LineUpWeightedColumnComponent)
-  private readonly columns: LineUpWeightedColumn[] = [];
-
   public build(): IWeightedSumBuilder {
-    return builderAdapter.buildWeightedSumRanking(noUndefined(this), this.columns.map((d) => ({
+    const children: LineUpWeightedColumn[] = this.$children.filter((d) => {
+      return d.$options!.name === 'LineUpWeightedColumn';
+    }) as any;
+    return builderAdapter.buildWeightedSumRanking(noUndefined(this), children.map((d) => ({
       weight: d.weight,
       column: d.build(),
     })));

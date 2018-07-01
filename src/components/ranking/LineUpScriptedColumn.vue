@@ -27,11 +27,9 @@ export default class LineUpScriptedColumn extends ALineUpColumnBuilder implement
   })
   public label?: string;
 
-  // @ContentChildren(LineUpColumnComponent)
-  private readonly columns: LineUpColumn[] = [];
-
   public build(): IScriptedBuilder {
-    return builderAdapter.buildScriptRanking(noUndefined(this), this.columns.map((d) => d.build()));
+    const children: LineUpColumn[] = this.$children.filter((d) => d.$options!.name === 'LineUpColumn') as any;
+    return builderAdapter.buildScriptRanking(noUndefined(this), children.map((d) => d.build()));
   }
 }
 </script>
