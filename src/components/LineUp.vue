@@ -1,5 +1,6 @@
 <template>
-  <div class="lu-wrapper" ref="main">
+  <div class="lu-wrapper">
+    <div ref="main"></div>
     <slot></slot>
   </div>
 </template>
@@ -32,68 +33,143 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   })
   public data!: any[];
 
-  @Prop(Array)
-  public selection: number[] | null = null;
-  @Prop(Number)
-  public highlight: number | null = null;
+  @Prop({
+    type: Array,
+    default: undefined,
+  })
+  public selection?: number[];
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
+  public highlight?: number;
 
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public singleSelection?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public filterGlobally?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public noCriteriaLimits?: boolean;
-  @Prop(Number)
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
   public maxGroupColumns?: number;
-  @Prop(Number)
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
   public maxNestedSortingCriteria?: number;
 
   @Prop()
   public columnTypes?: {[type: string]: typeof Column};
 
-  @Prop([Boolean, Array])
+  @Prop({
+    type: [Boolean, Array],
+    default: undefined,
+  })
   public deriveColumns?: boolean | string[];
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public deriveColors?: boolean;
 
   @Prop()
   public restore?: any;
-  @Prop([Boolean, String])
+  @Prop({
+    type: [Boolean, String],
+    default: undefined,
+  })
   public defaultRanking?: boolean | 'noSupportTypes';
 
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public animated?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public sidePanel?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public sidePanelCollapsed?: boolean;
-  @Prop(String)
+  @Prop({
+    type: String,
+    default: undefined,
+  })
   public defaultSlopeGraphMode?: 'item' | 'band';
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public summaryHeader?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public expandLineOnHover?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public overviewMode?: boolean;
-  @Prop(Boolean)
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
   public labelRotation?: number;
 
-  @Prop(Object)
+  @Prop({
+    type: Object,
+    default: () => ({}),
+  })
   public renderer?: {[id: string]: ICellRendererFactory};
-  @Prop(Object)
+  @Prop({
+    type: Object,
+    default: () => ({}),
+  })
   public toolbar?: {[id: string]: IToolbarAction};
 
-  @Prop(Number)
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
   public rowHeight?: number;
-  @Prop(Number)
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
   public rowPadding?: number;
 
-  @Prop(Number)
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
   public groupHeight?: number;
-  @Prop(Number)
+  @Prop({
+    type: Number,
+    default: undefined,
+  })
   public groupPadding?: number;
 
-  @Prop(Function)
+  @Prop({
+    type: Function,
+    default: undefined,
+  })
   public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
 
   private readonly adapter = new builderAdapter.Adapter({
@@ -114,14 +190,9 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     //
   }
 
-  protected createInstance(node: HTMLElement, data: LocalDataProvider,
-                           options: Partial<ITaggleOptions>): LineUpImpl | Taggle {
-    return new LineUpImpl(node, data, options);
+  public mounted() {
+    this.adapter.componentDidMount();
   }
-
-  // ngAfterViewInit() {
-  //   this._adapter.componentDidMount();
-  // }
 
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log(changes);
@@ -131,13 +202,34 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   //   }
   // }
 
-  // ngOnDestroy() {
-  //   this._adapter.componentWillUnmount();
-  // }
+  public destroyed() {
+    console.log('adsf');
+    this.adapter.componentWillUnmount();
+  }
+
+  protected createInstance(node: HTMLElement, data: LocalDataProvider,
+                           options: Partial<ITaggleOptions>): LineUpImpl | Taggle {
+    return new LineUpImpl(node, data, options);
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* TODO */
+  @import '~lineupjs/build/LineUpJS.css';
+
+  .lu-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+
+  .lu {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
 </style>
