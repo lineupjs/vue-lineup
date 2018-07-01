@@ -23,6 +23,7 @@ import {
   ITaggleOptions,
   Ranking,
 } from 'lineupjs';
+import { noUndefined } from './utils';
 
 
 @Component
@@ -211,21 +212,6 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     return new LineUpImpl(node, data, options);
   }
 }
-
-function noUndefined(obj: any) {
-  const r: any = {};
-  Object.getOwnPropertyNames(obj).forEach((key) => {
-    if (key.startsWith('$')) {
-      return;
-    }
-    const v = obj[key];
-    if (v !== undefined) {
-      r[key] = v;
-    }
-  });
-  return r;
-}
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

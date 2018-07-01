@@ -4,12 +4,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import LineUp from './components/LineUp.vue';
+import { LINEUP_COMPONENTS } from './components';
 
 @Component({
-  components: {
-    LineUp,
-  },
+  components: LINEUP_COMPONENTS,
 })
 export default class App extends Vue {
   public readonly data = [] as any[];
