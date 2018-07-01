@@ -1,21 +1,48 @@
 {
   "name": "vue-lineup",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+  "description": "LineUp is an interactive technique designed to create, visualize and explore rankings of items based on a set of heterogeneous attributes.",
+  "homepage": "https://github.com/datavisyn/vue-lineup",
+  "version": "0.0.1-alpha.0",
+  "author": {
+    "name": "Samuel Gratzl",
+    "email": "samuel_gratzl@gmx.at"
   },
-  "dependencies": {
-    "vue": "^2.5.16",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^6.0.0"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/datavisyn/vue-lineup/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datavisyn/vue-lineup.git"
+  },
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "build:dev": "vue-cli-service build --mode development --target lib lib/index.ts",
+    "build:prod": "vue-cli-service build --target lib lib/index.ts",
+    "lint": "vue-cli-service lint",
+    "prebuild": "npm test",
+    "build": "npm run build:prod",
+    "test": "echo 'no tests'",
+    "posttest": "npm run lint",
+    "preversion": "npm test",
+    "prepublishOnly": "npm run build:prod",
+    "release:major": "npm version major && npm publish && git push --follow-tags",
+    "release:minor": "npm version minor && npm publish && git push --follow-tags",
+    "release:patch": "npm version patch && npm publish && git push --follow-tags",
+    "release:pre": "npm version prerelease npm publish --tag=next && git push --follow-tags"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
     "vue-template-compiler": "^2.5.16"
+  },
+  "dependencies": {
+    "lineupjs": "^3.0.1-beta.13",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^6.0.0"
   },
   "browserslist": [
     "> 1%",
