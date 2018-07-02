@@ -1,5 +1,8 @@
 module.exports = {
   configureWebpack: {
+    output: {
+      library: 'VueLineUp'
+    },
     externals: {
       lineupjs: {
         amd: 'lineupjs',

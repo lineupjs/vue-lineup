@@ -14,10 +14,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { LINEUP_COMPONENTS } from './components';
+import LineUpComponents from './components';
 
 @Component({
-  components: LINEUP_COMPONENTS,
+  components: LineUpComponents,
 })
 export default class App extends Vue {
   public readonly data = [] as any[];

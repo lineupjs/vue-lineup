@@ -22,3 +22,5 @@ export const LINEUP_COMPONENTS = {
   LineUpActionsColumnDesc, LineUpCategoricalColumnDesc, LineUpColumnDesc,
   LineUpHierarchyColumnDesc, LineUpNumberColumnDesc, LineUpStringColumnDesc,
 };
+
+export default LINEUP_COMPONENTS;
