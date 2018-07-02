@@ -16,11 +16,12 @@
     "url": "https://github.com/datavisyn/vue-lineup.git"
   },
   "scripts": {
+    "clean": "rimraf build dist",
     "start": "vue-cli-service serve",
-    "build:dev": "vue-cli-service build --mode development --target lib lib/index.ts",
-    "build:prod": "vue-cli-service build --target lib lib/index.ts",
+    "build:dev": "vue-cli-service build --mode development --target lib src/index.ts",
+    "build:prod": "vue-cli-service build --target lib src/index.ts",
     "lint": "vue-cli-service lint",
-    "prebuild": "npm test",
+    "prebuild": "npm run clean && npm test",
     "build": "npm run build:prod",
     "test": "echo 'no tests'",
     "posttest": "npm run lint",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
+    "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
