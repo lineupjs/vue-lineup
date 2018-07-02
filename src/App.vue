@@ -40,7 +40,7 @@ export default class App extends Vue {
   }
 
   public highlightChanged(highlight: number) {
-    this.$set(this, 'highlight', highlight);
+    this.highlight = highlight;
   }
 }
 </script>

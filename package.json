@@ -15,6 +15,11 @@
     "type": "git",
     "url": "https://github.com/datavisyn/vue-lineup.git"
   },
+  "main": "./dist/vue-lineup.umd.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "clean": "rimraf build dist",
     "start": "vue-cli-service serve",
@@ -43,6 +48,7 @@
   },
   "dependencies": {
     "lineupjs": "^3.0.1-beta.13",
+    "vue": "^2.5.16",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^6.0.0"
   },
