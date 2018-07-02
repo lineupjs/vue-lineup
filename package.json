@@ -35,7 +35,7 @@
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
     "release:patch": "npm version patch && npm publish && git push --follow-tags",
-    "release:pre": "npm version prerelease npm publish --tag=next && git push --follow-tags"
+    "release:pre": "npm version prerelease && npm publish --tag=next && git push --follow-tags"
   },
   "peerDependencies": {
     "vue": "^2.5.16"
