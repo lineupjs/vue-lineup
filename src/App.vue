@@ -1,6 +1,6 @@
 <template>
   <!--<LineUp v-bind:data="data" />-->
-  <LineUp v-bind:data="data" defaultRanking="true" style="height: 800px">
+  <LineUp v-bind:data="data" defaultRanking="true" style="height: 800px" @highlightChanged="highlightChanged" v-bind:highlight="highlight">
     <LineUpStringColumnDesc column="d" label="Label" v-bind:width="100" />
     <LineUpCategoricalColumnDesc column="cat" v-bind:categories="cats" color="green" />
     <LineUpCategoricalColumnDesc column="cat2" v-bind:categories="cats" color="blue" />
@@ -24,6 +24,8 @@ export default class App extends Vue {
 
   public readonly cats = ['c1', 'c2', 'c3'];
 
+  public highlight = -1;
+
   constructor() {
     super();
     const cats = this.cats;
@@ -35,6 +37,11 @@ export default class App extends Vue {
         cat2: cats[Math.floor(Math.random() * 3)],
       });
     }
+  }
+
+  public highlightChanged(highlight: number) {
+    this.$set(this, 'highlight', highlight);
+    console.log(highlight);
   }
 }
 </script>

@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
+import { Component, Prop, Vue, Emit, Watch } from 'vue-property-decorator';
 import {
   builderAdapter,
   Column,
@@ -175,6 +175,8 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   })
   public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
 
+  private changed = new Set<keyof IBuilderAdapterProps>();
+
   private readonly adapter = new builderAdapter.Adapter({
     props: () => noUndefined(this),
     createInstance: (data: LocalDataProvider, options: Partial<ILineUpOptions>) =>
@@ -195,17 +197,24 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     //
   }
 
+  public created() {
+    // watch all properties
+    const props = Object.keys((this as any)._props) as Array<keyof IBuilderAdapterProps>;
+    for (const prop of props) {
+      this.$watch(prop, () => this.changed.add(prop));
+    }
+  }
+
   public mounted() {
     this.adapter.componentDidMount();
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log(changes);
-  //   const changed = new Set(Object.keys(changes).filter((d) => !changes[d].firstChange));
-  //   if (changed.size > 0) {
-  //     this._adapter.componentDidUpdate((prop) => changed.has(prop));
-  //   }
-  // }
+  public updated() {
+    if (this.changed.size > 0) {
+      this.adapter.componentDidUpdate((d) => this.changed.has(d));
+      this.changed.clear();
+    }
+  }
 
   public destroyed() {
     this.adapter.componentWillUnmount();
@@ -216,6 +225,11 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     return new LineUpImpl(node, data, options);
   }
 }
+
+function all(this: LineUp) {
+  return this.highlight;
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
