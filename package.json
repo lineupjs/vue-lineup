@@ -2,7 +2,7 @@
   "name": "vue-lineup",
   "description": "LineUp is an interactive technique designed to create, visualize and explore rankings of items based on a set of heterogeneous attributes.",
   "homepage": "https://github.com/datavisyn/vue-lineup",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0",
   "author": {
     "name": "Samuel Gratzl",
     "email": "samuel_gratzl@gmx.at"
