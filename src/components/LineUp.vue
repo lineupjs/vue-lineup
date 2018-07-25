@@ -111,6 +111,11 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   })
   public sidePanelCollapsed?: boolean;
   @Prop({
+    type: Boolean,
+    default: undefined,
+  })
+  public hierarchyIndicator?: boolean;
+  @Prop({
     type: String,
     default: undefined,
   })
