@@ -47,7 +47,7 @@
     "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
-    "lineupjs": "^3.0.1-beta.13",
+    "lineupjs": "^3.1.0",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^6.0.0"
   },
