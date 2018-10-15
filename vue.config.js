@@ -3,17 +3,17 @@ module.exports = {
   css: {
     extract: false
   },
-  configureWebpack: {
-    output: {
-      library: 'VueLineUp'
-    },
-    externals: {
-      lineupjs: {
-        amd: 'lineupjs',
-        root: 'LineUpJS',
-        commonjs: 'lineupjs',
-        commonjs2: 'lineupjs'
-      }
-    },
+  configureWebpack: (config) => {
+    config.output.library = 'VueLineUp';
+    if (process.env.NODE_ENV === 'production') {
+      config.externals = Object.assign(config.externals ||{}, {
+        lineupjs: {
+          amd: 'lineupjs',
+          root: 'LineUpJS',
+          commonjs: 'lineupjs',
+          commonjs2: 'lineupjs'
+        }
+      })
+    }
   }
 }
