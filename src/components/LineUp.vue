@@ -180,6 +180,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   })
   public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
 
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
+  public ignoreUnsupportedBrowser?: boolean;
+
   private changed = new Set<keyof IBuilderAdapterProps>();
 
   private readonly adapter = new builderAdapter.Adapter({

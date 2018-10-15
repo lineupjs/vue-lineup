@@ -34,6 +34,12 @@ export default class LineUpNumberColumnDesc extends LineUpColumnDesc implements 
     type: String,
     default: undefined,
   })
+  public colorMapping?: string;
+
+  @Prop({
+    type: String,
+    default: undefined,
+  })
   public scripted?: string;
 
   @Prop({
