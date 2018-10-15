@@ -142,12 +142,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   public labelRotation?: number;
 
   @Prop({
-    type: Object,
+    type: Object as () => {[id: string]: ICellRendererFactory},
     default: () => ({}),
   })
   public renderer?: {[id: string]: ICellRendererFactory};
   @Prop({
-    type: Object,
+    type: Object as () => {[id: string]: IToolbarAction},
     default: () => ({}),
   })
   public toolbar?: {[id: string]: IToolbarAction};
