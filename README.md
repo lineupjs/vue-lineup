@@ -13,7 +13,7 @@ Usage
 **Installation**
 
 ```bash
-npm install --save vue-lineup@next
+npm install --save vue-lineup
 ```
 
 **Minimal Usage Example**
@@ -99,6 +99,8 @@ Development Environment
 git clone https://github.com/datavisyn/vue-lineup.git
 cd vue-lineup
 npm install
+# install peer dependency
+npm install --no-save vue
 ```
 
 **Build distribution packages**

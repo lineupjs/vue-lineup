@@ -5,7 +5,7 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 import {
-  builderAdapter, IStringColumnDesc, IBuilderAdapterStringColumnDescProps,
+  builderAdapter, ILinkColumnDesc, IBuilderAdapterStringColumnDescProps,
 } from 'lineupjs';
 import LineUpColumnDesc from './LineUpColumnDesc.vue';
 import { noUndefined } from '../utils';
@@ -36,7 +36,7 @@ export default class LineUpStringColumnDesc extends LineUpColumnDesc implements 
   })
   public patternTemplates?: string[];
 
-  public build(): IStringColumnDesc {
+  public build(): ILinkColumnDesc {
     return builderAdapter.buildString(noUndefined(this));
   }
 }
