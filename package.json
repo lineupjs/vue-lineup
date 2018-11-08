@@ -2,10 +2,11 @@
   "name": "vue-lineup",
   "description": "LineUp is an interactive technique designed to create, visualize and explore rankings of items based on a set of heterogeneous attributes.",
   "homepage": "https://github.com/datavisyn/vue-lineup",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "author": {
     "name": "Samuel Gratzl",
-    "email": "samuel_gratzl@gmx.at"
+    "email": "sam@sgratzl.com",
+    "url": "https://www.sgratzl.com"
   },
   "license": "MIT",
   "bugs": {
@@ -38,18 +39,19 @@
     "release:pre": "npm version prerelease && npm publish --tag=next && git push --follow-tags"
   },
   "peerDependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
-    "@vue/cli-service": "^3.0.0-beta.15",
+    "@vue/cli-plugin-typescript": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
     "rimraf": "^2.6.2",
-    "vue-template-compiler": "^2.5.16"
+    "typescript": "^3.0.1",
+    "vue-template-compiler": "^2.5.17"
   },
   "dependencies": {
-    "lineupjs": "^3.1.0",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^6.0.0"
+    "lineupjs": "~3.1.7",
+    "vue-class-component": "^6.3.0",
+    "vue-property-decorator": "^7.2.0"
   },
   "browserslist": [
     "> 1%",

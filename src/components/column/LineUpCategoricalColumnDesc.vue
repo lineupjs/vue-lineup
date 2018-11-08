@@ -26,7 +26,7 @@ export default class LineUpCategoricalColumnDesc extends LineUpColumnDesc
   public categories?: Array<string | Partial<ICategory>>;
 
   @Prop({
-    type: [String, Object],
+    type: [String, Object as () => Partial<ICategory>],
     default: undefined,
   })
   public missingCategory?: (string | Partial<ICategory>);

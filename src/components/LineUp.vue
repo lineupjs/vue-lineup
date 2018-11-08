@@ -142,12 +142,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   public labelRotation?: number;
 
   @Prop({
-    type: Object,
+    type: Object as () => {[id: string]: ICellRendererFactory},
     default: () => ({}),
   })
   public renderer?: {[id: string]: ICellRendererFactory};
   @Prop({
-    type: Object,
+    type: Object as () => {[id: string]: IToolbarAction},
     default: () => ({}),
   })
   public toolbar?: {[id: string]: IToolbarAction};
@@ -179,6 +179,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     default: undefined,
   })
   public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
+
+  @Prop({
+    type: Boolean,
+    default: undefined,
+  })
+  public ignoreUnsupportedBrowser?: boolean;
 
   private changed = new Set<keyof IBuilderAdapterProps>();
 
