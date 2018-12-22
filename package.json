@@ -1,7 +1,7 @@
 {
   "name": "vue-lineup",
   "description": "LineUp is an interactive technique designed to create, visualize and explore rankings of items based on a set of heterogeneous attributes.",
-  "homepage": "https://github.com/datavisyn/vue-lineup",
+  "homepage": "https://github.com/lineupjs/vue-lineup",
   "version": "1.0.7",
   "author": {
     "name": "Samuel Gratzl",
@@ -10,11 +10,11 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/datavisyn/vue-lineup/issues"
+    "url": "https://github.com/lineupjs/vue-lineup/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/datavisyn/vue-lineup.git"
+    "url": "https://github.com/lineupjs/vue-lineup.git"
   },
   "main": "./dist/vue-lineup.umd.js",
   "files": [
