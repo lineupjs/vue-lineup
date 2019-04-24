@@ -212,7 +212,10 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     // watch all properties
     const props = Object.keys((this as any)._props) as Array<keyof IBuilderAdapterProps>;
     for (const prop of props) {
-      this.$watch(prop, () => this.changed.add(prop));
+      this.$watch(prop, () => {
+        this.changed.add(prop);
+        this.$forceUpdate(); // force an update since we just have a dummy template
+      });
     }
   }
 
