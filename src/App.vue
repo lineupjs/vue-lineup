@@ -1,6 +1,6 @@
 <template>
-  <!--<LineUp v-bind:data="data" />-->
-  <LineUp v-bind:data="data" defaultRanking="true" style="height: 800px" @highlightChanged="highlightChanged" v-bind:highlight="highlight">
+  <LineUp v-bind:data="data" />
+  <!--<LineUp v-bind:data="data" defaultRanking="true" style="height: 800px" @highlightChanged="highlightChanged" v-bind:highlight="highlight">
     <LineUpStringColumnDesc column="d" label="Label" v-bind:width="100" />
     <LineUpCategoricalColumnDesc column="cat" v-bind:categories="cats" color="green" />
     <LineUpCategoricalColumnDesc column="cat2" v-bind:categories="cats" color="blue" />
@@ -9,7 +9,7 @@
       <LineUpSupportColumn type="*" />
       <LineUpColumn column="*" />
     </LineUpRanking>
-  </LineUp>
+  </LineUp>-->
 </template>
 
 <script lang="ts">
@@ -20,7 +20,7 @@ import {LINEUP_COMPONENTS} from './components';
   components: LINEUP_COMPONENTS,
 })
 export default class App extends Vue {
-  public readonly data = [] as any[];
+  public data = [] as any[];
 
   public readonly cats = ['c1', 'c2', 'c3'];
 
@@ -37,6 +37,24 @@ export default class App extends Vue {
         cat2: cats[Math.floor(Math.random() * 3)],
       });
     }
+  }
+
+  public mounted() {
+    const that = this; // this vs that since classes are just a intermediate proxy
+    setTimeout(() => {
+      const cats = this.cats;
+      const data = [];
+      for (let i = 0; i < 1000; ++i) {
+        data.push({
+          a: Math.random() * 10,
+          d: 'Row ' + i,
+          cat: cats[Math.floor(Math.random() * 3)],
+          cat2: cats[Math.floor(Math.random() * 3)],
+        });
+      }
+      that.data = data;
+      // console.log('updated data');
+    }, 5000);
   }
 
   public highlightChanged(highlight: number) {
