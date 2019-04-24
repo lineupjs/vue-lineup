@@ -1,7 +1,7 @@
 {
   "name": "vue-lineup",
   "description": "LineUp is an interactive technique designed to create, visualize and explore rankings of items based on a set of heterogeneous attributes.",
-  "homepage": "https://github.com/datavisyn/vue-lineup",
+  "homepage": "https://github.com/lineupjs/vue-lineup",
   "version": "1.0.7",
   "author": {
     "name": "Samuel Gratzl",
@@ -10,11 +10,11 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/datavisyn/vue-lineup/issues"
+    "url": "https://github.com/lineupjs/vue-lineup/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/datavisyn/vue-lineup.git"
+    "url": "https://github.com/lineupjs/vue-lineup.git"
   },
   "main": "./dist/vue-lineup.umd.js",
   "files": [
@@ -31,27 +31,27 @@
     "build": "npm run build:prod",
     "test": "echo 'no tests'",
     "posttest": "npm run lint",
-    "preversion": "npm test",
     "prepublishOnly": "npm run build:prod",
-    "release:major": "npm version major && npm publish && git push --follow-tags",
-    "release:minor": "npm version minor && npm publish && git push --follow-tags",
-    "release:patch": "npm version patch && npm publish && git push --follow-tags",
-    "release:pre": "npm version prerelease && npm publish --tag=next && git push --follow-tags"
+    "release:major": "release-it major",
+    "release:minor": "release-it minor",
+    "release:patch": "release-it patch",
+    "release:pre": "release-it --preRelease=alpha --npm.tag=next"
   },
   "peerDependencies": {
-    "vue": "^2.5.17"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@vue/cli-plugin-typescript": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
-    "rimraf": "^2.6.2",
-    "typescript": "^3.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "@vue/cli-plugin-typescript": "^3.6.0",
+    "@vue/cli-service": "^3.6.0",
+    "release-it": "^10.4.4",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.4.5",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
     "lineupjs": "~3.1.7",
-    "vue-class-component": "^6.3.0",
-    "vue-property-decorator": "^7.2.0"
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0"
   },
   "browserslist": [
     "> 1%",
