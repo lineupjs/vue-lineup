@@ -41,17 +41,17 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@vue/cli-plugin-typescript": "^3.10.0",
-    "@vue/cli-service": "^3.10.0",
-    "release-it": "^12.3.5",
-    "rimraf": "^2.6.3",
-    "typescript": "^3.5.3",
+    "@vue/cli-plugin-typescript": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "release-it": "^12.3.6",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.2",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
     "lineupjs": "~3.1.7",
     "vue-class-component": "^7.1.0",
-    "vue-property-decorator": "^8.2.1"
+    "vue-property-decorator": "^8.2.2"
   },
   "browserslist": [
     "> 1%",
