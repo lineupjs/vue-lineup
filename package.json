@@ -38,7 +38,7 @@
     "release:pre": "release-it --preRelease=alpha --npm.tag=next"
   },
   "peerDependencies": {
-    "vue": "^2.6.10"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.11.0",
@@ -46,10 +46,11 @@
     "release-it": "^12.3.6",
     "rimraf": "^3.0.0",
     "typescript": "^3.6.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
-    "lineupjs": "~3.1.7",
+    "lineupjs": "~4.0.0",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.2"
   },
