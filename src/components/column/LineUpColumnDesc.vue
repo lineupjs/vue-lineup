@@ -4,9 +4,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import {
-  builderAdapter, IBuilderAdapterColumnDescProps, IColumnDesc,
-} from 'lineupjs';
+import { builderAdapter, IBuilderAdapterColumnDescProps, IColumnDesc } from 'lineupjs';
 import { noUndefined } from '../utils';
 
 @Component
@@ -33,7 +31,7 @@ export default class LineUpColumnDesc extends Vue implements IBuilderAdapterColu
     type: Object,
     default: undefined,
   })
-  public custom?: {[key: string]: any};
+  public custom?: { [key: string]: any };
 
   /**
    * label of the column

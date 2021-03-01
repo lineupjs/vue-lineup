@@ -1,19 +1,16 @@
+# LineUp.js Vue.js Wrapper
 
-LineUp.js Vue.js Wrapper
-=========================
-
-[![License: MIT][mit-image]][mit-url] [![NPM version][npm-image]][npm-url]  [![CircleCI][ci-image]][ci-url]
+[![License: MIT][mit-image]][mit-url] [![NPM version][npm-image]][npm-url] [![Github Actions][github-actions-image]][github-actions-url]
 
 LineUp is an interactive technique designed to create, visualize and explore rankings of items based on a set of heterogeneous attributes.
 This is a [Vue.js](https://vuejs.org) wrapper around the JavaScript library [LineUp.js](https://github.com/lineupjs/lineupjs). Details about the LineUp visualization technique can be found at [http://lineup.caleydo.org](http://lineup.caleydo.org).
 
-Usage
------
+## Usage
 
 **Installation**
 
 ```bash
-npm install --save vue-lineup
+npm install vue-lineup
 ```
 
 **Minimal Usage Example**
@@ -38,8 +35,8 @@ const app = new Vue({
   template: `<LineUp v-bind:data="data" />`,
   data: {
     cats,
-    data
-  }
+    data,
+  },
 });
 ```
 
@@ -47,10 +44,10 @@ const app = new Vue({
 
 ![Minimal Result](https://user-images.githubusercontent.com/4129778/34654173-32180ff8-f3f8-11e7-8469-229fa34a65dc.png)
 
-
 **Advanced Usage Example**
 
 `App.vue`:
+
 ```ts
 const app = new Vue({
   el: '#app',
@@ -66,8 +63,8 @@ const app = new Vue({
   </LineUp>`,
   data: {
     cats,
-    data
-  }
+    data,
+  },
 });
 ```
 
@@ -75,57 +72,49 @@ const app = new Vue({
 
 ![Advanced Result](https://user-images.githubusercontent.com/4129778/34654174-3235f784-f3f8-11e7-9361-44f5fa068bb9.png)
 
+## Supported Browsers
 
-Supported Browsers
-------------------
+- Chrome 64+ (best performance)
+- Firefox 57+
+- Edge 16+
 
- * Chrome 64+ (best performance)
- * Firefox 57+
- * Edge 16+
-
-
-
-Development Environment
------------------------
+## Development Environment
 
 **Installation**
 
 ```bash
 git clone https://github.com/lineupjs/vue-lineup.git
 cd vue-lineup
-npm install
-# install peer dependency
-npm install --no-save vue
+npm i -g yarn
+yarn set version berry
+yarn set version latest
+# cat .yarnrc_patch.yml >> .yarnrc.yml
+yarn install
+yarn pnpify --sdk vscode
 ```
 
-**Build distribution packages**
+### Common commands
 
-```bash
-npm run build
+```sh
+yarn start
+yarn clean
+yarn compile
+yarn test
+yarn lint
+yarn fix
+yarn build
+yarn docs
+yarn release
+yarn release:pre
 ```
 
-**Run Linting**
+## Authors
 
-```bash
-npm run lint
-```
-
-
-**Serve integrated webserver**
-
-```bash
-npm start
-```
-
-
-Authors
--------
-
- * Samuel Gratzl (@sgratzl)
+- Samuel Gratzl (@sgratzl)
 
 [npm-image]: https://badge.fury.io/js/vue-lineup.svg
 [npm-url]: https://npmjs.org/package/vue-lineup
 [mit-image]: https://img.shields.io/badge/License-MIT-yellow.svg
 [mit-url]: https://opensource.org/licenses/MIT
-[ci-image]: https://circleci.com/gh/lineupjs/vue-lineup.svg?style=shield
-[ci-url]: https://circleci.com/gh/lineupjs/vue-lineup
+[github-actions-image]: https://github.com/lineupjs/vue-lineup/workflows/ci/badge.svg
+[github-actions-url]: https://github.com/lineupjs/vue-lineup/actions

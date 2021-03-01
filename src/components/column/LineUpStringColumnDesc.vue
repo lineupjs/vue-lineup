@@ -4,9 +4,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import {
-  builderAdapter, ILinkColumnDesc, IBuilderAdapterStringColumnDescProps,
-} from 'lineupjs';
+import { builderAdapter, ILinkColumnDesc, IBuilderAdapterStringColumnDescProps } from 'lineupjs';
 import LineUpColumnDesc from './LineUpColumnDesc.vue';
 import { noUndefined } from '../utils';
 

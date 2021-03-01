@@ -5,14 +5,18 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 import {
-  builderAdapter, IPartialCategoryNode, IHierarchyColumnDesc, IBuilderAdapterHierarchyColumnDescProps,
+  builderAdapter,
+  IPartialCategoryNode,
+  IHierarchyColumnDesc,
+  IBuilderAdapterHierarchyColumnDescProps,
 } from 'lineupjs';
 import LineUpColumnDesc from './LineUpColumnDesc.vue';
 import { noUndefined } from '../utils';
 
 @Component
-export default class LineUpHierarchyColumnDesc extends LineUpColumnDesc
-                implements IBuilderAdapterHierarchyColumnDescProps {
+export default class LineUpHierarchyColumnDesc
+  extends LineUpColumnDesc
+  implements IBuilderAdapterHierarchyColumnDescProps {
   @Prop({
     type: Object,
     required: true,

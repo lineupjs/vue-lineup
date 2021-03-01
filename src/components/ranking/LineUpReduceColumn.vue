@@ -6,9 +6,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import {
-  builderAdapter, IBuilderAdapterReduceColumnProps, IReduceBuilder,
-} from 'lineupjs';
+import { builderAdapter, IBuilderAdapterReduceColumnProps, IReduceBuilder } from 'lineupjs';
 import { ALineUpColumnBuilder } from './ALineUpColumnBuilder';
 import { noUndefined } from '../utils';
 import LineUpColumn from './LineUpColumn.vue';
@@ -29,7 +27,10 @@ export default class LineUpWeightedColumn extends ALineUpColumnBuilder implement
 
   public build(): IReduceBuilder {
     const children: LineUpColumn[] = this.$children.filter((d) => d.$options!.name === 'LineUpColumn') as any;
-    return builderAdapter.buildReduceRanking(noUndefined(this), children.map((d) => d.build()));
+    return builderAdapter.buildReduceRanking(
+      noUndefined(this),
+      children.map((d) => d.build())
+    );
   }
 }
 </script>

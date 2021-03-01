@@ -6,9 +6,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import {
-  builderAdapter, IBuilderAdapterNestedColumnProps, INestedBuilder,
-} from 'lineupjs';
+import { builderAdapter, IBuilderAdapterNestedColumnProps, INestedBuilder } from 'lineupjs';
 import { ALineUpColumnBuilder } from './ALineUpColumnBuilder';
 import { noUndefined } from '../utils';
 import LineUpColumn from './LineUpColumn.vue';
@@ -23,7 +21,10 @@ export default class LineUpNestedColumn extends ALineUpColumnBuilder implements 
 
   public build(): INestedBuilder {
     const children: LineUpColumn[] = this.$children.filter((d) => d.$options!.name === 'LineUpColumn') as any;
-    return builderAdapter.buildNestedRanking(noUndefined(this), children.map((d) => d.build()));
+    return builderAdapter.buildNestedRanking(
+      noUndefined(this),
+      children.map((d) => d.build())
+    );
   }
 }
 </script>

@@ -4,15 +4,14 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import {
-  builderAdapter, ICategoricalColumnDesc, IBuilderAdapterCategoricalColumnDescProps, ICategory,
-} from 'lineupjs';
+import { builderAdapter, ICategoricalColumnDesc, IBuilderAdapterCategoricalColumnDescProps, ICategory } from 'lineupjs';
 import LineUpColumnDesc from './LineUpColumnDesc.vue';
 import { noUndefined } from '../utils';
 
 @Component
-export default class LineUpCategoricalColumnDesc extends LineUpColumnDesc
-                implements IBuilderAdapterCategoricalColumnDescProps {
+export default class LineUpCategoricalColumnDesc
+  extends LineUpColumnDesc
+  implements IBuilderAdapterCategoricalColumnDescProps {
   @Prop({
     type: Boolean,
     default: undefined,
@@ -29,7 +28,7 @@ export default class LineUpCategoricalColumnDesc extends LineUpColumnDesc
     type: [String, Object as () => Partial<ICategory>],
     default: undefined,
   })
-  public missingCategory?: (string | Partial<ICategory>);
+  public missingCategory?: string | Partial<ICategory>;
 
   @Prop({
     type: [Boolean, String],

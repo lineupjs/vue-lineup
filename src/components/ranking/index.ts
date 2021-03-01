@@ -1,4 +1,3 @@
-
 export { default as LineUpRanking } from './LineUpRanking.vue';
 export { default as LineUpAllColumns } from './LineUpAllColumns.vue';
 export { default as LineUpColumn } from './LineUpColumn.vue';

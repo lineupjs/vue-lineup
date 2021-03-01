@@ -27,13 +27,14 @@ import { ALineUpColumnBuilder } from './ALineUpColumnBuilder';
 import { noUndefined } from '../utils';
 
 @Component
-export default class LineUpRanking extends Vue  implements IBuilderAdapterRankingProps {
+export default class LineUpRanking extends Vue implements IBuilderAdapterRankingProps {
   @Prop({
     type: [String, Object, Array],
     default: undefined,
   })
-  public sortBy?: (string | {column: string, asc: 'asc' | 'desc' | boolean}) |
-                   Array<string | {column: string, asc: 'asc' | 'desc' | boolean}>;
+  public sortBy?:
+    | (string | { column: string; asc: 'asc' | 'desc' | boolean })
+    | Array<string | { column: string; asc: 'asc' | 'desc' | boolean }>;
 
   @Prop({
     type: [String, Array],
@@ -45,8 +46,9 @@ export default class LineUpRanking extends Vue  implements IBuilderAdapterRankin
     type: Array,
     default: undefined,
   })
-  public columns?: Array<string | IImposeColumnBuilder | INestedBuilder | IWeightedSumBuilder |
-                         IReduceBuilder | IScriptedBuilder>;
+  public columns?: Array<
+    string | IImposeColumnBuilder | INestedBuilder | IWeightedSumBuilder | IReduceBuilder | IScriptedBuilder
+  >;
 
   public merge() {
     const children: ALineUpColumnBuilder[] = this.$children.filter((d) => d.$options!.name!.endsWith('Column')) as any;
@@ -54,7 +56,7 @@ export default class LineUpRanking extends Vue  implements IBuilderAdapterRankin
 
     const columns = (this.columns || []).concat(inline);
 
-    const r: IBuilderAdapterRankingProps = {columns};
+    const r: IBuilderAdapterRankingProps = { columns };
     if (this.sortBy) {
       r.sortBy = this.sortBy;
     }

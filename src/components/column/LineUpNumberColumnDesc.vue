@@ -4,9 +4,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import {
-  builderAdapter, IBuilderAdapterNumberColumnDescProps, EAdvancedSortMethod, INumberColumnDesc,
-} from 'lineupjs';
+import { builderAdapter, IBuilderAdapterNumberColumnDescProps, EAdvancedSortMethod, INumberColumnDesc } from 'lineupjs';
 import LineUpColumnDesc from './LineUpColumnDesc.vue';
 import { noUndefined } from '../utils';
 
@@ -52,6 +50,4 @@ export default class LineUpNumberColumnDesc extends LineUpColumnDesc implements 
     return builderAdapter.buildNumber(noUndefined(this), data);
   }
 }
-
-
 </script>

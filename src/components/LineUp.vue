@@ -27,7 +27,6 @@ import { noUndefined } from './utils';
 import { LineUpColumnDesc } from './column';
 import { LineUpRanking } from './ranking';
 
-
 @Component
 export default class LineUp extends Vue implements IBuilderAdapterProps {
   @Prop({
@@ -74,7 +73,7 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   public maxNestedSortingCriteria?: number;
 
   @Prop()
-  public columnTypes?: {[type: string]: typeof Column};
+  public columnTypes?: { [type: string]: typeof Column };
 
   @Prop({
     type: [Boolean, Array],
@@ -142,15 +141,15 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   public labelRotation?: number;
 
   @Prop({
-    type: Object as () => {[id: string]: ICellRendererFactory},
+    type: Object as () => { [id: string]: ICellRendererFactory },
     default: () => ({}),
   })
-  public renderer?: {[id: string]: ICellRendererFactory};
+  public renderer?: { [id: string]: ICellRendererFactory };
   @Prop({
-    type: Object as () => {[id: string]: IToolbarAction},
+    type: Object as () => { [id: string]: IToolbarAction },
     default: () => ({}),
   })
-  public toolbar?: {[id: string]: IToolbarAction};
+  public toolbar?: { [id: string]: IToolbarAction };
 
   @Prop({
     type: Number,
@@ -178,7 +177,7 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     type: Function,
     default: undefined,
   })
-  public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => (IDynamicHeight | null);
+  public dynamicHeight?: (data: Array<IGroupItem | IGroupData>, ranking: Ranking) => IDynamicHeight | null;
 
   @Prop({
     type: Boolean,
@@ -192,10 +191,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     props: () => noUndefined(this),
     createInstance: (data: LocalDataProvider, options: Partial<ILineUpOptions>) =>
       this.createInstance(this.$refs.main as HTMLElement, data, options),
-    columnDescs: (data: any[]) => this.$children.filter((d) => d.$options!.name!.endsWith('ColumnDesc'))
-      .map((d) => (d as LineUpColumnDesc).build(data)),
-    rankingBuilders: () => this.$children.filter((d) => d.$options!.name === 'LineUpRanking')
-      .map((d) => (d as LineUpRanking).merge()),
+    columnDescs: (data: any[]) =>
+      this.$children
+        .filter((d) => d.$options!.name!.endsWith('ColumnDesc'))
+        .map((d) => (d as LineUpColumnDesc).build(data)),
+    rankingBuilders: () =>
+      this.$children.filter((d) => d.$options!.name === 'LineUpRanking').map((d) => (d as LineUpRanking).merge()),
   });
 
   @Emit('selectionChanged')
@@ -234,8 +235,11 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     this.adapter.componentWillUnmount();
   }
 
-  protected createInstance(node: HTMLElement, data: LocalDataProvider,
-                           options: Partial<ITaggleOptions>): LineUpImpl | Taggle {
+  protected createInstance(
+    node: HTMLElement,
+    data: LocalDataProvider,
+    options: Partial<ITaggleOptions>
+  ): LineUpImpl | Taggle {
     return new LineUpImpl(node, data, options);
   }
 }
@@ -243,24 +247,23 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
 function all(this: LineUp) {
   return this.highlight;
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="../../node_modules/lineupjs/build/LineUpJS.css" ></style>
+<style src="../../node_modules/lineupjs/build/LineUpJS.css"></style>
 <style scoped>
-  .lu-wrapper {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 500px;
-  }
+.lu-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 500px;
+}
 
-  .lu {
-    position: absolute !important;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
+.lu {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 </style>

@@ -6,9 +6,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import {
-  builderAdapter, IScriptedBuilder, IBuilderAdapterScriptColumnProps,
-} from 'lineupjs';
+import { builderAdapter, IScriptedBuilder, IBuilderAdapterScriptColumnProps } from 'lineupjs';
 import { ALineUpColumnBuilder } from './ALineUpColumnBuilder';
 import { noUndefined } from '../utils';
 import LineUpColumn from './LineUpColumn.vue';
@@ -29,7 +27,10 @@ export default class LineUpScriptedColumn extends ALineUpColumnBuilder implement
 
   public build(): IScriptedBuilder {
     const children: LineUpColumn[] = this.$children.filter((d) => d.$options!.name === 'LineUpColumn') as any;
-    return builderAdapter.buildScriptRanking(noUndefined(this), children.map((d) => d.build()));
+    return builderAdapter.buildScriptRanking(
+      noUndefined(this),
+      children.map((d) => d.build())
+    );
   }
 }
 </script>

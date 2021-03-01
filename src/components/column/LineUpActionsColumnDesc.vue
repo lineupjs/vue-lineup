@@ -5,7 +5,11 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 import {
-  builderAdapter, IBuilderAdapterActionsColumnDescProps, IActionColumnDesc, IAction, IGroupAction,
+  builderAdapter,
+  IBuilderAdapterActionsColumnDescProps,
+  IActionColumnDesc,
+  IAction,
+  IGroupAction,
 } from 'lineupjs';
 import LineUpColumnDesc from './LineUpColumnDesc.vue';
 import { noUndefined } from '../utils';

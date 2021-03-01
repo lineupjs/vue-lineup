@@ -1,21 +1,21 @@
-.DS_Store
-node_modules
-/dist
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
+/.tscache
+/.idea
+/build/
+/dist/
+/docs/
+node_modules/
+/src/**/*.js
+/src/**/*.d.ts
+/demo/**/*.js
+/tests/**/*.js
+/cypress/integration/**/*.js
+/cypress/integration/**/*.d.ts
+*.map
+*.css
+*.log
+*.tsbuildinfo
+/.yarn
+/.pnp.js
+/.yarnrc.yml
+*.tgz
+*.zip
