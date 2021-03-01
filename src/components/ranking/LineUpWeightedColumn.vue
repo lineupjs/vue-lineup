@@ -4,7 +4,6 @@
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
-import { builderAdapter } from 'lineupjs';
 import { ALineUpColumnBuilder } from './ALineUpColumnBuilder';
 
 @Component

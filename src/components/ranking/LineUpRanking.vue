@@ -8,13 +8,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import {
   builderAdapter,
-  IBuilderAdapterImposeColumnProps,
-  IBuilderAdapterNestedColumnProps,
   IBuilderAdapterRankingProps,
-  IBuilderAdapterReduceColumnProps,
-  IBuilderAdapterScriptColumnProps,
-  IBuilderAdapterSupportColumnProps,
-  IBuilderAdapterWeightedSumColumnProps,
   IImposeColumnBuilder,
   INestedBuilder,
   IReduceBuilder,

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 import LineUp from './LineUp.vue';
 import { Taggle as TaggleImpl, LocalDataProvider, ITaggleOptions } from 'lineupjs';
 

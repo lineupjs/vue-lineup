@@ -4,7 +4,7 @@ module.exports = {
     extract: false,
   },
   configureWebpack: (config) => {
-    config.output.library = 'VueLineUp';
+    config.output.library = require('./package.json').global;
     if (process.env.NODE_ENV === 'production') {
       config.externals = Object.assign(config.externals || {}, {
         lineupjs: {

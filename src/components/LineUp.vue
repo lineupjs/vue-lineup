@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
 import {
   builderAdapter,
   Column,
@@ -200,12 +200,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
   });
 
   @Emit('selectionChanged')
-  public onSelectionChanged(selection: number[]) {
+  public onSelectionChanged(_selection: number[]) {
     //
   }
 
   @Emit('highlightChanged')
-  public onHighlightChanged(highlight: number) {
+  public onHighlightChanged(_highlight: number) {
     //
   }
 
@@ -243,14 +243,12 @@ export default class LineUp extends Vue implements IBuilderAdapterProps {
     return new LineUpImpl(node, data, options);
   }
 }
-
-function all(this: LineUp) {
-  return this.highlight;
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="../../node_modules/lineupjs/build/LineUpJS.css"></style>
+<style>
+@import '~lineupjs/build/LineUpJS.css';
+</style>
 <style scoped>
 .lu-wrapper {
   position: relative;

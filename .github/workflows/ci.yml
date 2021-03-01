@@ -23,9 +23,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn2
       - run: yarn install
-      - run: yarn clean
-      - run: yarn compile
-      - run: yarn build
-      - run: yarn lint
+      - run: yarn run clean
+      - run: yarn run compile
+      - run: yarn run build
+      - run: yarn run prettier
       # - run: yarn test:coverage
-      - run: yarn docs
+      - run: yarn run docs

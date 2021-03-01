@@ -16,7 +16,10 @@
     "type": "git",
     "url": "https://github.com/lineupjs/vue-lineup.git"
   },
+  "global": "VueLineUp",
   "main": "./dist/vue-lineup.umd.js",
+  "unpkg": "./dist/vue-lineup.umd.min.js",
+  "jsdelivr": "./dist/vue-lineup.umd.min.js",
   "files": [
     "dist",
     "src"
@@ -31,7 +34,7 @@
     "prettier": "prettier \"*\" \"*/**\" --check",
     "start": "vue-cli-service serve",
     "build:dev": "vue-cli-service build --mode development --target lib src/index.ts",
-    "lint": "vue-cli-service lint && yarn prettier",
+    "lint": "vue-cli-service lint && yarn run prettier",
     "build": "vue-cli-service build --target lib src/index.ts",
     "test": "echo 'no tests'",
     "prepublishOnly": "yarn run build",

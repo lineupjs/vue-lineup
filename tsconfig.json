@@ -3,7 +3,7 @@
     "module": "ESNext",
     "target": "ES6",
     "sourceMap": true,
-    "lib": ["DOM", "ES2016", "es2017.object"],
+    "lib": ["DOM", "ES2016", "es2017.object", "ES2017.SharedMemory"],
     "composite": true,
     "declaration": true,
     "declarationMap": true,
@@ -28,5 +28,5 @@
       "*": ["*", "node_modules/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "tsd.d.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tsd.d.ts"]
 }

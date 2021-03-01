@@ -136,7 +136,7 @@ export default class LineUpColumnDesc extends Vue implements IBuilderAdapterColu
   })
   public visible!: boolean;
 
-  public build(data: any[]): IColumnDesc {
+  public build(_data: any[]): IColumnDesc {
     return builderAdapter.build(noUndefined(this));
   }
 }
